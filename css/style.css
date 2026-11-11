@@ -1,0 +1,170 @@
+/* Marriage Registration BD - clean, responsive, offline-first. */
+:root {
+  --navy: #6d1a2d;
+  --teal: #9f2d3f;
+  --bg: #fdf6f3;
+  --card: #ffffff;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --good: #15803d;
+  --warn: #b45309;
+  --bad: #b91c1c;
+  --danger: #dc2626;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Bengali", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 16px; }
+.topbar { background: var(--navy); color: #fff; padding: 18px 0; }
+.topbar-in { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.topbar h1 { margin: 0; font-size: 1.6rem; }
+.tagline { margin: 4px 0 0; opacity: .9; font-size: .95rem; }
+.btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: .95rem;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--teal); }
+.btn.primary { background: var(--teal); border-color: var(--teal); color: #fff; }
+.btn.ghost { background: transparent; }
+.btn.danger { background: var(--danger); border-color: var(--danger); color: #fff; }
+.btn.small { padding: 5px 10px; font-size: .85rem; }
+.btn.lang { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); white-space: nowrap; }
+.btn:disabled { opacity: .55; cursor: default; }
+main { padding: 16px 0 40px; }
+h2 { margin: 0 0 10px; font-size: 1.25rem; color: var(--navy); }
+h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.muted { color: var(--muted); font-size: .92rem; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.facts-card { background: #fdeef0; border: 1px solid #f9c5cd; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.fact {
+  background: #fff;
+  border: 1px solid #f9c5cd;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: .9rem;
+}
+.tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  padding: 8px 0;
+  z-index: 5;
+}
+.tab {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-size: .95rem;
+  color: var(--ink);
+}
+.tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+.panel[hidden] { display: none; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 12px; }
+.form-grid label span, label > span { display: block; font-weight: 600; margin-bottom: 4px; font-size: .92rem; }
+select, input[type="date"], input[type="text"] {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--ink);
+}
+.fee-result { font-size: 1.15rem; }
+.fee-result strong { color: var(--teal); }
+.fee-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.fee-table th, .fee-table td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); }
+.fee-table th { color: var(--navy); }
+.fee-table tbody tr { cursor: pointer; }
+.fee-table tbody tr:hover { background: #fdf2f3; }
+.fee-cell { white-space: nowrap; font-weight: 700; color: var(--teal); }
+.progress { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; margin: 8px 0; }
+.progress .bar { height: 100%; background: var(--teal); transition: width .2s; }
+.guide-card { margin-bottom: 16px; }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+.steps li { padding: 10px 0; border-top: 1px solid var(--line); }
+.steps li:first-child { border-top: 0; }
+.steps label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.steps input[type="checkbox"], .checks input[type="checkbox"], .check-line input[type="checkbox"] {
+  width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0; accent-color: var(--teal);
+}
+.steps li.done strong { text-decoration: line-through; color: var(--muted); }
+.checks { list-style: none; margin: 0; padding: 0; }
+.checks li { padding: 8px 0; border-top: 1px solid var(--line); }
+.checks li:first-child { border-top: 0; }
+.checks label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.check-line { display: flex; gap: 10px; align-items: center; margin: 10px 0; cursor: pointer; }
+.check-line span { font-weight: 400; }
+.result { border-radius: 10px; padding: 12px 14px; margin-top: 12px; }
+.result.good { background: #dcfce7; border: 1px solid #86efac; }
+.result.warn { background: #fef3c7; border: 1px solid #fcd34d; }
+.result.bad { background: #fee2e2; border: 1px solid #fca5a5; }
+.result ul { margin: 6px 0 0; }
+.options { display: grid; gap: 8px; margin: 12px 0; }
+.opt {
+  text-align: left;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+.opt:hover:not(:disabled) { border-color: var(--teal); }
+.opt.correct { background: #dcfce7; border-color: var(--good); }
+.opt.wrong { background: #fee2e2; border-color: var(--bad); }
+.quiz-feed p { margin: 8px 0; }
+.good-t { color: var(--good); }
+.bad-t { color: var(--bad); }
+.review { padding-left: 20px; }
+.review li { margin-bottom: 10px; }
+.review li.ok { color: var(--good); }
+.review li.bad { color: var(--bad); }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+footer { margin-top: 24px; color: var(--muted); font-size: .88rem; }
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  z-index: 50;
+  max-width: 90vw;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .topbar h1 { font-size: 1.35rem; }
+  .tagline { font-size: .88rem; }
+  .card { padding: 12px; }
+  .tabs { position: static; }
+}

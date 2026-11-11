@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marriage Registration BD &#8212; Kabin Fee Calculator &amp; Guide</title>
+<meta name="description" content="Bangladesh marriage registration guide: kabin (dower) fee calculator, step-by-step registration guides, document checklists, age check and quiz. Bilingual English / &#2476;&#2494;&#2434;&#2482;&#2494;, fully offline.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <div>
+      <h1 id="title" data-i18n="appTitle">Marriage Registration BD</h1>
+      <p class="tagline" data-i18n="tagline">Bangladesh marriage registration made simple &#8212; kabin fee calculator, steps, documents, age check and quiz. Fully offline.</p>
+    </div>
+    <button id="langBtn" type="button" class="btn lang">&#2476;&#2494;&#2434;&#2482;&#2494;</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button id="tabbtn-fee" type="button" role="tab" class="tab active" data-i18n="tabFee">Fee calculator</button>
+    <button id="tabbtn-facts" type="button" role="tab" class="tab" data-i18n="tabFacts">Facts</button>
+    <button id="tabbtn-guides" type="button" role="tab" class="tab" data-i18n="tabGuides">Guides</button>
+    <button id="tabbtn-checklists" type="button" role="tab" class="tab" data-i18n="tabChecklists">Documents</button>
+    <button id="tabbtn-age" type="button" role="tab" class="tab" data-i18n="tabAge">Age check</button>
+    <button id="tabbtn-quiz" type="button" role="tab" class="tab" data-i18n="tabQuiz">Quiz</button>
+    <button id="tabbtn-data" type="button" role="tab" class="tab" data-i18n="tabData">My data</button>
+  </nav>
+
+  <!-- FEE CALCULATOR -->
+  <section id="tab-fee" class="panel" aria-label="Fee calculator">
+    <div class="card">
+      <h2 data-i18n="feeTitle">Kabin (dower) fee calculator</h2>
+      <p class="muted" data-i18n="feeHint">Enter the agreed dower (mahr). Fee: &#2547;14 per &#2547;1,000 up to &#2547;5 lakh, then &#2547;100 per lakh above that. Minimum fee &#2547;200, paid by the bridegroom.</p>
+      <div class="form-grid">
+        <label><span data-i18n="dowerLabel">Dower amount (&#2547;)</span>
+          <input id="dowerInput" type="text" inputmode="numeric" autocomplete="off" data-i18n-ph="dowerPh" placeholder="e.g. 500000">
+        </label>
+      </div>
+      <p class="btn-row">
+        <button id="calcBtn" type="button" class="btn primary" data-i18n="calcBtn">Calculate fee</button>
+        <button id="saveFeeBtn" type="button" class="btn" data-i18n="saveBtn">Save this calculation</button>
+      </p>
+      <div id="feeResult" class="result" hidden></div>
+    </div>
+    <div class="card">
+      <h2 data-i18n="feeTableTitle">Common dower amounts</h2>
+      <p class="muted" data-i18n="feeTableHint">Tap a row to load it into the calculator.</p>
+      <div id="feeTable"></div>
+    </div>
+    <div class="card">
+      <h2 data-i18n="savedTitle">Saved calculations</h2>
+      <div id="savedFees"></div>
+    </div>
+  </section>
+
+  <!-- FACTS -->
+  <section id="tab-facts" class="panel" aria-label="Facts" hidden>
+    <section class="facts-card" aria-label="Key facts">
+      <h2 data-i18n="factsTitle">Key facts</h2>
+      <div id="facts" class="facts"></div>
+    </section>
+    <div class="card">
+      <h2 data-i18n="whatTitle">Nikah Nama vs. official certificate</h2>
+      <div id="whatText"></div>
+    </div>
+  </section>
+
+  <!-- GUIDES -->
+  <section id="tab-guides" class="panel" aria-label="Guides" hidden>
+    <h2 data-i18n="guidesTitle">Step-by-step guides</h2>
+    <p class="muted" data-i18n="guidesHint">Tick each step as you finish it &#8212; your progress is saved in this browser.</p>
+    <div id="guidesList"></div>
+  </section>
+
+  <!-- CHECKLISTS -->
+  <section id="tab-checklists" class="panel" aria-label="Documents" hidden>
+    <h2 data-i18n="checkTitle">Document checklists</h2>
+    <p class="muted" data-i18n="checkHint">Tick what you already have. The lists are saved in this browser.</p>
+    <div class="card">
+      <p><strong id="checkOverall"></strong></p>
+      <div class="progress"><div class="bar" id="checkOverallBar" style="width:0%"></div></div>
+    </div>
+    <div id="checkList"></div>
+  </section>
+
+  <!-- AGE CHECK -->
+  <section id="tab-age" class="panel" aria-label="Age check" hidden>
+    <div class="card">
+      <h2 data-i18n="ageTitle">Are the bride and groom old enough?</h2>
+      <p class="muted" data-i18n="ageHint">Minimum legal age: bride 18, groom 21 (Child Marriage Restraint Act, 2017). Enter whole ages in years.</p>
+      <div class="form-grid">
+        <label><span data-i18n="brideAgeLabel">Bride&#8217;s age (years)</span>
+          <input id="brideAge" type="text" inputmode="numeric" autocomplete="off" placeholder="18">
+        </label>
+        <label><span data-i18n="groomAgeLabel">Groom&#8217;s age (years)</span>
+          <input id="groomAge" type="text" inputmode="numeric" autocomplete="off" placeholder="21">
+        </label>
+      </div>
+      <p><button id="ageBtn" type="button" class="btn primary" data-i18n="ageBtn">Check ages</button></p>
+      <div id="ageResult" class="result" hidden></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="tab-quiz" class="panel" aria-label="Quiz" hidden>
+    <div class="card">
+      <h2 data-i18n="quizTitle">Marriage registration quiz</h2>
+      <div id="quizBox"></div>
+    </div>
+  </section>
+
+  <!-- DATA -->
+  <section id="tab-data" class="panel" aria-label="My data" hidden>
+    <div class="card">
+      <h2 data-i18n="dataTitle">My data</h2>
+      <p class="muted" data-i18n="dataHint">Your guide progress, document checklists, saved fee calculations and best quiz score live only in this browser. Export them to keep a backup.</p>
+      <div class="btn-row">
+        <button id="exportBtn" type="button" class="btn" data-i18n="exportBtn">Export my data</button>
+        <button id="importBtn" type="button" class="btn" data-i18n="importBtn">Import data</button>
+        <button id="eraseBtn" type="button" class="btn danger" data-i18n="eraseBtn">Erase all</button>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="disclaimer">Unofficial learning guide, not a government publication and not legal advice. Fee rules and facts were checked on 2026-11-11 &#8212; confirm the current fee with your Nikah Registrar before you pay. Never pay a broker, and never share your OTP or password with anyone.</p>
+  </footer>
+</main>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="js/logic.js"></script>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
